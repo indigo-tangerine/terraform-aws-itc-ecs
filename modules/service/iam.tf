@@ -16,6 +16,7 @@ resource "aws_iam_role" "ecs_service" {
   permissions_boundary = var.permissions_boundary == "" ? null : var.permissions_boundary
 }
 
+#tfsec:ignore:aws-iam-no-policy-wildcards
 data "aws_iam_policy_document" "ecs_service_policy" {
   statement {
     effect    = "Allow"
