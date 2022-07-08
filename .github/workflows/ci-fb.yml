@@ -1,0 +1,20 @@
+name: continuous-integration-fb
+
+on:
+  push:
+    paths:
+    branches-ignore:
+      - main
+
+jobs:
+  # CALL WORKFLOW tfm-validate-plan code validation and lint
+  validate-iac:
+    uses: indigo-tangerine/shared-workflows/.github/workflows/tfm-validate.yml@main
+    with:
+      terraform-dir: "."
+
+  # CALL WORKFLOW tfm-security tfsec scan
+  security-scan:
+    uses: indigo-tangerine/shared-workflows/.github/workflows/tfm-security.yml@main
+    with:
+      terraform-dir: "."
