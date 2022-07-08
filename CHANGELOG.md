@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v0.2.0](https://github.com/indigo-tangerine/terraform-aws-itc-ecs/releases/tag/v0.2.0) - 2022-07-08 16:26:24
+
+*No description*
+
 ## [v0.1.0](https://github.com/indigo-tangerine/terraform-aws-itc-ecs/releases/tag/v0.1.0) - 2022-07-08 16:11:05
 
 *No description*
