@@ -8,6 +8,7 @@ resource "aws_security_group" "ecs_service" {
 
 }
 
+#tfsec:ignore:aws-vpc-no-public-egress-sgr
 resource "aws_security_group_rule" "allow_all_egress" {
   type              = "egress"
   from_port         = 0
@@ -15,6 +16,7 @@ resource "aws_security_group_rule" "allow_all_egress" {
   protocol          = "-1"
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.ecs_service.id
+  description       = "Allow all outbound"
 }
 
 resource "aws_security_group_rule" "alb" {
@@ -25,6 +27,7 @@ resource "aws_security_group_rule" "alb" {
   protocol                 = "tcp"
   source_security_group_id = var.alb_security_group
   security_group_id        = aws_security_group.ecs_service.id
+  description              = "Allow ALB inbound"
 }
 
 resource "aws_security_group_rule" "nlb" {
@@ -35,4 +38,5 @@ resource "aws_security_group_rule" "nlb" {
   protocol          = "tcp"
   cidr_blocks       = var.nlb_cidr_blocks
   security_group_id = aws_security_group.ecs_service.id
+  description       = "Allow NLB inbound"
 }

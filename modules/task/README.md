@@ -71,13 +71,13 @@ environment = [
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.0 |
 
 ### Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.0 |
 
 ### Modules
 
@@ -104,7 +104,6 @@ No modules.
 | <a name="input_container_definition_json"></a> [container\_definition\_json](#input\_container\_definition\_json) | A string containing a JSON-encoded array of container definitions<br>(`"[{ "name": "container1", ... }, { "name": "container2", ... }]"`).<br>See [AWS docs](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html),<br>https://github.com/cloudposse/terraform-aws-ecs-container-definition, or<br>[Terraform docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition#container_definitions) | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | The name of the task. Up to 255 characters ([a-z], [A-Z], [0-9], -, \_ allowed) | `any` | n/a | yes |
 | <a name="input_network_mode"></a> [network\_mode](#input\_network\_mode) | (Optional) The Docker networking mode to use for the containers in the task. | `string` | `"awsvpc"` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | (Required) Map of tags to apply to resources | `map(any)` | n/a | yes |
 | <a name="input_task_capabilities"></a> [task\_capabilities](#input\_task\_capabilities) | (Optional) A set of launch types required by the task. The valid values are EC2 and FARGATE | `list(any)` | <pre>[<br>  "FARGATE"<br>]</pre> | no |
 | <a name="input_task_cpu"></a> [task\_cpu](#input\_task\_cpu) | (Optional) The number of cpu units used by the task. If the requires\_compatibilities is FARGATE this field is required. Task CPU must be greater than sum of container CPU | `number` | `1024` | no |
 | <a name="input_task_exec_role_policy_arns_default"></a> [task\_exec\_role\_policy\_arns\_default](#input\_task\_exec\_role\_policy\_arns\_default) | Default AWS policies assigned to the task execution role | `list` | <pre>[<br>  "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",<br>  "arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess",<br>  "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy",<br>  "arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess",<br>  "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"<br>]</pre> | no |

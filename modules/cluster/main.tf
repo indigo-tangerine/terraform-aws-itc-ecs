@@ -1,3 +1,4 @@
+#tfsec:ignore:aws-ecs-enable-container-insight
 resource "aws_ecs_cluster" "main" {
   name = var.name
 
